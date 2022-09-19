@@ -62,14 +62,10 @@ it('Renderiza o NotFound caso seja acessada uma rota inexistente', () => {
     history.push(INVALID_URL);
   });
 
-  const notFoundTitle = screen.getByRole(
-    'heading',
-    { name: /Pokédex/i },
-  );
-  expect(notFoundTitle).toBeInTheDocument();
+  const notFoundTitle = screen.getByRole('heading', {
+    name: /page requested not found/i,
+    level: 2,
+  });
 
-  const notFoundText = screen.getByText(
-    /Page requested not found/i,
-  );
-  expect(notFoundText).toBeInTheDocument();
+  expect(notFoundTitle).toBeInTheDocument();
 });
