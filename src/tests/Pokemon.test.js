@@ -15,7 +15,6 @@ it('Teste se a imagem do pokemon possui o src correto e o alt <name> sprite', ()
 
   const image = screen.getByRole('img', {
     name: `${pikachu.name} sprite`,
-    src: 'https://cdn2.bulbagarden.net/upload/b/b2/Spr_5b_025_m.png',
   });
   const type = screen.getByText(`${pikachu.type}`);
 
@@ -30,10 +29,9 @@ it('Se star possui o src /star-icon.svg e o alt <name> is marked as favorite', (
   );
   const imageFavorite = screen.getByRole('img', {
     name: /pikachu is marked as favorite/i,
-    src: '/star-icon.svg',
   });
 
-  expect(imageFavorite).toBeInTheDocument();
+  expect(imageFavorite).toHaveAttribute('src', '/star-icon.svg');
 });
 
 it('É exibido na tela um link com o href /pokemons/<id>', () => {
