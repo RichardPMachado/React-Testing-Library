@@ -19,7 +19,7 @@ it('Teste se a imagem do pokemon possui o src correto e o alt <name> sprite', ()
   });
   const type = screen.getByText(`${pikachu.type}`);
 
-  expect(image).toBeInTheDocument();
+  expect(image).toHaveAttribute('src', `${pikachu.image}`);
   expect(type).toBeInTheDocument();
 });
 
